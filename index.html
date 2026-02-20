@@ -1,80 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DJQWTQH8BW"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
       gtag('config', 'G-DJQWTQH8BW');
     </script>
-    <meta name="keywords" content="CGPA calculator, student calculator, percentage calculator India">
-    <meta name="author" content="Your Name">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Calculator Hub - Free Online Tools</title>
-    <meta name="description" content="Free online calculators for students including CGPA, Percentage, Interest, Attendance and Age calculator.">
-
+    <title>Student Calculator Hub - CGPA, Attendance & Percentage Tools</title>
+    <meta name="description" content="Free online calculators for students. Calculate CGPA, attendance percentage, and simple interest instantly with Student Calculator Hub.">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-50 font-sans">
 
-<!-- Navbar -->
-<nav class="bg-indigo-600 p-4 text-white flex justify-between">
-    
-  <h1 class="text-xl font-bold">Student Calculator Hub</h1>
-  <div>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="#tools" class="mr-4">Tools</a>
-    <a href="about.html" class="mr-4">About</a>
-    <a href="contact.html">Contact</a>
+<nav class="bg-indigo-600 p-4 text-white shadow-md">
+  <div class="max-w-6xl mx-auto flex justify-between items-center">
+    <h1 class="text-xl font-bold tracking-tight">Student Calculator Hub</h1>
+    <div class="space-x-4 text-sm">
+      <a href="index.html" class="hover:underline">Home</a>
+      <a href="about.html" class="hover:underline">About</a>
+      <a href="privacy.html" class="hover:underline">Privacy</a>
+    </div>
   </div>
 </nav>
 
-<!-- Hero Section -->
-<section class="text-center py-16 bg-gradient-to-r from-indigo-500 to-purple-600 text-white">
-  <h2 class="text-4xl font-bold mb-4">Free Online Student Calculators</h2>
-  <p class="text-lg">Fast. Simple. Accurate.</p>
+<section class="text-center py-20 bg-gradient-to-br from-indigo-600 to-purple-700 text-white px-4">
+  <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Master Your Academic Math</h2>
+  <p class="text-lg opacity-90 max-w-2xl mx-auto">Fast, reliable, and mobile-friendly calculators designed specifically for modern students.</p>
 </section>
 
-<!-- Tools Section -->
-<section id="tools" class="py-12 px-6">
-  <div class="grid md:grid-cols-3 gap-6">
-
-    <a href="cgpa.html" class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
-      <h3 class="text-xl font-bold mb-2">CGPA Calculator</h3>
-      <p>Calculate your CGPA instantly.</p>
+<section id="tools" class="py-12 px-6 max-w-6xl mx-auto">
+  <div class="grid md:grid-cols-3 gap-8">
+    <a href="cgpa.html" class="calculator-card bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition">
+      <div class="text-indigo-600 mb-4 text-2xl font-bold">CGPA</div>
+      <h3 class="text-xl font-bold mb-2 text-gray-800">CGPA Calculator</h3>
+      <p class="text-gray-600">Calculate semester or yearly CGPA using credits and grades.</p>
     </a>
 
-    <a href="percentage.html" class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
-      <h3 class="text-xl font-bold mb-2">Percentage Calculator</h3>
-      <p>Convert marks into percentage.</p>
+    <a href="attendance.html" class="calculator-card bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition">
+      <div class="text-green-600 mb-4 text-2xl font-bold">75%</div>
+      <h3 class="text-xl font-bold mb-2 text-gray-800">Attendance Tracker</h3>
+      <p class="text-gray-600">Check if you have enough attendance to sit for your exams.</p>
     </a>
 
-    <a href="interest.html" class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
-      <h3 class="text-xl font-bold mb-2">Interest Calculator</h3>
-      <p>Calculate simple interest easily.</p>
+    <a href="percentage.html" class="calculator-card bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition">
+      <div class="text-red-600 mb-4 text-2xl font-bold">%</div>
+      <h3 class="text-xl font-bold mb-2 text-gray-800">Percentage Converter</h3>
+      <p class="text-gray-600">Quickly convert your marks into a percentage value.</p>
     </a>
-
-    <a href="attendance.html" class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
-      <h3 class="text-xl font-bold mb-2">Attendance Calculator</h3>
-      <p>Check your attendance percentage.</p>
-    </a>
-
-    <a href="age.html" class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
-      <h3 class="text-xl font-bold mb-2">Age Calculator</h3>
-      <p>Find your exact age instantly.</p>
-    </a>
-
   </div>
 </section>
 
-<!-- Footer -->
-<footer class="bg-gray-800 text-white text-center p-4">
-  © 2026 Student Calculator Hub. All rights reserved.
+<article class="max-w-4xl mx-auto py-12 px-6 text-gray-700">
+    <h2 class="text-2xl font-bold mb-4">Why use Student Calculator Hub?</h2>
+    <p class="mb-4">Managing grades and attendance shouldn't be a headache. Our suite of student tools helps you stay organized. Whether you need an <strong>Attendance Calculator</strong> to plan your bunking or a <strong>CGPA Calculator</strong> to track your progress, we have you covered.</p>
+</article>
+
+<footer class="bg-gray-900 text-gray-400 text-center p-8">
+  <p>© 2026 Student Calculator Hub. Built for Students, by Students.</p>
 </footer>
 
 </body>

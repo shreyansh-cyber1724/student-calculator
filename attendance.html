@@ -1,31 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DJQWTQH8BW"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
       gtag('config', 'G-DJQWTQH8BW');
     </script>
-    <meta name="keywords" content="CGPA calculator, student calculator, percentage calculator India">
-    <meta name="author" content="Your Name">
-    <title>Attendance Calculator</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Calculator - Student Calculator Hub</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-gray-100 min-h-screen">
 
-<h2>Attendance Calculator</h2>
+<nav class="bg-indigo-600 p-4 text-white">
+  <div class="max-w-4xl mx-auto"><a href="index.html" class="font-bold">← Back to Tools</a></div>
+</nav>
 
-<input type="number" id="attended" placeholder="Classes Attended">
-<input type="number" id="totalClasses" placeholder="Total Classes">
-<br><br>
+<main class="max-w-4xl mx-auto py-10 px-4">
+    <div class="bg-white p-8 rounded-2xl shadow-lg max-w-md mx-auto text-center">
+        <h2 class="text-2xl font-bold mb-6 text-gray-800">Attendance Calculator</h2>
+        
+        <div class="text-left space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Classes Attended</label>
+                <input type="number" id="attended" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Total Classes Held</label>
+                <input type="number" id="totalClasses" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none">
+            </div>
+            <button onclick="calculateAttendance()" class="w-full bg-indigo-600 text-white font-bold py-3 rounded-lg hover:bg-indigo-700 transition">
+                Calculate Percentage
+            </button>
+        </div>
 
-<button onclick="calculateAttendance()">Calculate</button>
+        <div id="result" class="mt-6 text-2xl font-extrabold text-indigo-600"></div>
+    </div>
 
-<h3 id="result"></h3>
+    <section class="mt-12 bg-white p-8 rounded-2xl shadow-sm prose max-w-none">
+        <h3 class="text-xl font-bold mb-4">How to calculate attendance percentage?</h3>
+        <p>To calculate your attendance, use the following formula:</p>
+        <div class="bg-gray-50 p-4 rounded text-center font-mono my-4">
+            (Attended Classes / Total Classes) × 100
+        </div>
+        <p>If you have attended 30 classes out of 40, your attendance is (30/40) * 100 = 75%.</p>
+    </section>
+</main>
 
 <script src="script.js"></script>
 </body>
