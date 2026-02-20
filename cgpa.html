@@ -1,22 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta name="keywords" content="CGPA calculator, student calculator, percentage calculator India">
+    <meta name="author" content="Your Name">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CGPA Calculator</title>
-    <link rel="stylesheet" href="style.css">
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
 
-<h2>CGPA Calculator</h2>
+<div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
 
-<input type="number" id="sub1" placeholder="Subject 1">
-<input type="number" id="sub2" placeholder="Subject 2">
-<input type="number" id="sub3" placeholder="Subject 3">
-<br><br>
+<h2 class="text-2xl font-bold mb-6 text-center">CGPA Calculator</h2>
 
-<button onclick="calculateCGPA()">Calculate</button>
+<input type="number" id="sub1" placeholder="Subject 1" class="w-full p-2 border mb-3 rounded">
+<input type="number" id="sub2" placeholder="Subject 2" class="w-full p-2 border mb-3 rounded">
+<input type="number" id="sub3" placeholder="Subject 3" class="w-full p-2 border mb-3 rounded">
 
-<h3 id="result"></h3>
+<button onclick="calculateCGPA()" class="w-full bg-indigo-600 text-white p-2 rounded hover:bg-indigo-700 transition">
+Calculate CGPA
+</button>
 
-<script src="script.js"></script>
+<h3 id="result" class="text-center text-xl mt-4 font-bold"></h3>
+
+</div>
+
+<script>
+function calculateCGPA() {
+    let s1 = parseFloat(document.getElementById("sub1").value) || 0;
+    let s2 = parseFloat(document.getElementById("sub2").value) || 0;
+    let s3 = parseFloat(document.getElementById("sub3").value) || 0;
+
+    if(s1===0 || s2===0 || s3===0){
+        document.getElementById("result").innerHTML = "Please enter all marks";
+        return;
+    }
+
+    let cgpa = (s1 + s2 + s3) / 3;
+    document.getElementById("result").innerHTML = "Your CGPA: " + cgpa.toFixed(2);
+}
+</script>
+
 </body>
 </html>
