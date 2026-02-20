@@ -1,25 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="keywords" content="CGPA calculator, student calculator, percentage calculator India">
-    <meta name="author" content="Your Name">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CGPA Calculator</title>
-    
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DJQWTQH8BW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DJQWTQH8BW');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced CGPA Calculator</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
 
-<div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
 
-<h2 class="text-2xl font-bold mb-6 text-center">CGPA Calculator</h2>
+<div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-2xl">
 
-<input type="number" id="sub1" placeholder="Subject 1" class="w-full p-2 border mb-3 rounded">
-<input type="number" id="sub2" placeholder="Subject 2" class="w-full p-2 border mb-3 rounded">
-<input type="number" id="sub3" placeholder="Subject 3" class="w-full p-2 border mb-3 rounded">
+<h2 class="text-2xl font-bold mb-6 text-center">Advanced CGPA Calculator</h2>
 
-<button onclick="calculateCGPA()" class="w-full bg-indigo-600 text-white p-2 rounded hover:bg-indigo-700 transition">
+<label class="block mb-2 font-semibold">Number of Subjects:</label>
+<select id="subjectCount" class="w-full p-2 border rounded mb-4" onchange="generateFields()">
+  <option value="">Select</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+</select>
+
+<div id="inputFields"></div>
+
+<button onclick="calculateCGPA()" class="w-full bg-indigo-600 text-white p-2 mt-4 rounded hover:bg-indigo-700 transition">
 Calculate CGPA
 </button>
 
@@ -28,17 +44,40 @@ Calculate CGPA
 </div>
 
 <script>
-function calculateCGPA() {
-    let s1 = parseFloat(document.getElementById("sub1").value) || 0;
-    let s2 = parseFloat(document.getElementById("sub2").value) || 0;
-    let s3 = parseFloat(document.getElementById("sub3").value) || 0;
+function generateFields() {
+    let count = document.getElementById("subjectCount").value;
+    let container = document.getElementById("inputFields");
+    container.innerHTML = "";
 
-    if(s1===0 || s2===0 || s3===0){
-        document.getElementById("result").innerHTML = "Please enter all marks";
-        return;
+    for(let i=1; i<=count; i++){
+        container.innerHTML += `
+        <div class="grid grid-cols-2 gap-4 mb-3">
+            <input type="number" step="0.01" id="grade${i}" placeholder="Grade for Subject ${i}" class="p-2 border rounded">
+            <input type="number" step="0.01" id="credit${i}" placeholder="Credit for Subject ${i}" class="p-2 border rounded">
+        </div>
+        `;
+    }
+}
+
+function calculateCGPA() {
+    let count = document.getElementById("subjectCount").value;
+    let totalGradePoints = 0;
+    let totalCredits = 0;
+
+    for(let i=1; i<=count; i++){
+        let grade = parseFloat(document.getElementById("grade"+i).value);
+        let credit = parseFloat(document.getElementById("credit"+i).value);
+
+        if(isNaN(grade) || isNaN(credit)){
+            document.getElementById("result").innerHTML = "Please fill all fields correctly.";
+            return;
+        }
+
+        totalGradePoints += grade * credit;
+        totalCredits += credit;
     }
 
-    let cgpa = (s1 + s2 + s3) / 3;
+    let cgpa = totalGradePoints / totalCredits;
     document.getElementById("result").innerHTML = "Your CGPA: " + cgpa.toFixed(2);
 }
 </script>
